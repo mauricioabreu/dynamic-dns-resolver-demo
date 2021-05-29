@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  edge:
+    build:
+      context: ./edge
+    volumes:
+      - "./edge/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+      - "./edge/src/:/lua/src/"
+    ports:
+      - "8080:8080"
+  upstream_a:
+    image: nginxdemos/hello
+    ports:
+      - "8082:80"
+    networks:
+      dns_net:
+        ipv4_address: 172.20.0.3
+  upstream_b:
+    image: nginxdemos/hello
+    ports:
+      - "8083:80"
+    networks:
+      dns_net:
+        ipv4_address: 172.20.0.4
+
+networks:
+  dns_net:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
+          gateway: 172.20.0.1
