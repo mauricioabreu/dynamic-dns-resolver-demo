@@ -2,7 +2,7 @@ FROM openresty/openresty:xenial
 
 RUN apt-get update \
   && apt-get install -y \
-    dnsutils git iputils-ping \
+    dnsutils git iputils-ping telnet \
   && mkdir /src \
   && cd /src \
   && git config --global url."https://".insteadOf git:// \
