@@ -8,6 +8,22 @@ services:
       - "./edge/src/:/lua/src/"
     ports:
       - "8080:8080"
+    networks:
+      dns_net:
+        ipv4_address: 172.20.0.5
+  dns:
+    image: coredns/coredns:latest
+    volumes:
+      - "./dns/config:/etc/coredns"
+    expose:
+      - "53"
+      - "53/udp"
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    networks:
+      dns_net:
+        ipv4_address: 172.20.0.2
   upstream_a:
     image: nginxdemos/hello
     ports:
