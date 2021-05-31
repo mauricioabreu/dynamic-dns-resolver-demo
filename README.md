@@ -30,3 +30,14 @@ make start_edge
 Now you can change the `dns/config/ddnsr-demo.hosts` file and check if `localhost:8080` still works.
 
 There are two IPs you can use to simulate this: `172.20.0.3` and `172.20.0.4`
+
+## Testing keep-alive connections
+
+To check if the keepalive feature still works after using dynamic DNS resolver, use `tcpdump`:
+
+1) open up a terminal in the `edge` container
+2) execute `tcpdump -i any -nn -s0 -vvv "dst 172.20.0.3 and tcp[tcpflags] & tcp-syn != 0"`
+3) make a request to `localhost:8080` check if received a line containing `Flags [S]`
+4) repeat the request above and check if you are still receiving that line
+
+If you did not receive it twice, keepa-alive is working fine.
