@@ -1,4 +1,4 @@
-FROM openresty/openresty:xenial
+FROM openresty/openresty:bionic
 
 RUN apt-get update \
   && apt-get install -y \
