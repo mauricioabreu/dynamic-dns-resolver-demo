@@ -5,7 +5,8 @@
 }
 
 ddnsr-demo.com:53 {
-  file /etc/coredns/ddnsr-demo.db
-  log
-  errors
+  hosts /etc/coredns/ddnsr-demo.hosts upstream.ddnsr-demo.com {
+    ttl 30
+    reload 10s
+  }
 }
