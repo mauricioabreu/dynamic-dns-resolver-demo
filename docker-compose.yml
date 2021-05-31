@@ -9,8 +9,7 @@ services:
     ports:
       - "8080:8080"
     networks:
-      dns_net:
-        ipv4_address: 172.20.0.5
+      - dns_net
   dns:
     image: coredns/coredns:latest
     volumes:
@@ -41,10 +40,7 @@ services:
 
 networks:
   dns_net:
-    driver: bridge
-    enable_ipv6: false
     ipam:
-      driver: default
       config:
         - subnet: 172.20.0.0/24
           gateway: 172.20.0.1
