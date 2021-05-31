@@ -40,4 +40,4 @@ To check if the keepalive feature still works after using dynamic DNS resolver, 
 3) make a request to `localhost:8080` check if received a line containing `Flags [S]`
 4) repeat the request above and check if you are still receiving that line
 
-If you did not receive it twice, keepa-alive is working fine.
+If you did not receive it twice, keep-alive is working fine.
