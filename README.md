@@ -24,3 +24,7 @@ And finally, we need to get our edge up and running to use the DNS server to sim
 ```console
 make start_edge
 ```
+
+Now you can change the `dns/config/ddnsr-demo.hosts` file and check if `localhost:8080` still works.
+
+There are two IPs you can use to simulate this: `172.20.0.3` and `172.20.0.4`
