@@ -7,6 +7,8 @@ at the same time we have a real project to demonstrate it working.
 
 ## Usage
 
+> These containers run in a custom network. Run `docker network create --subnet=172.20.0.0/16 ddnsr` to create it
+
 First, fire up two upstreams. These will be our NGINX upstreams used to emulate invalid IPs being cached by NGINX.
 
 ```console
