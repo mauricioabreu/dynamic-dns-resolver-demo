@@ -1,4 +1,4 @@
 ddnsr-demo.com. IN SOA dns.ddnsr-demo.com. user.ddnsr-demo.com. 2015082541 7200 3600 1209600 3600
 gateway.ddnsr-demo.com. IN A 172.20.0.1
-upstream_a.ddnsr-demo.com. IN A 172.20.0.3
-upstream_b.ddnsr-demo.com. IN A 172.20.0.4
+upstream-a.ddnsr-demo.com. IN A 172.20.0.3
+upstream-b.ddnsr-demo.com. IN A 172.20.0.4
