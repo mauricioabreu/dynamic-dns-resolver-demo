@@ -5,7 +5,7 @@
 }
 
 ddnsr-demo.com:53 {
-  file /root/ddnsr-demo.db
+  file /etc/coredns/ddnsr-demo.db
   log
   errors
 }

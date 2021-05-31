@@ -40,7 +40,8 @@ services:
 
 networks:
   dns_net:
+    driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/24
+        - subnet: 172.20.0.0/16
           gateway: 172.20.0.1
