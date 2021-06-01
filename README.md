@@ -7,7 +7,7 @@ at the same time we have a real project to demonstrate it working.
 
 ---
 
-Special thanks to [@juanaugusto](https://github.com/juanaugusto) and [@leandromoreira](https://github.com/leandromoreira)) for helping to create this demo.
+Special thanks to [@juanaugusto](https://github.com/juanaugusto) and [@leandromoreira](https://github.com/leandromoreira) for helping to create this demo.
 
 ## Why?
 
