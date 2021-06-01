@@ -7,5 +7,6 @@ start_dns:
 	@docker run -d --rm --net ddnsr --ip 172.20.0.2 --expose=53 --expose=53/udp -p 53:53 -p 53:53/udp -v $(shell pwd)/dns/config:/etc/coredns ddnsr-demo/coredns -conf /etc/coredns/Corefile
 
 start_upstreams:
-	@docker run -d --rm --net ddnsr --ip 172.20.0.3 -p 8082:80 nginxdemos/hello
-	@docker run -d --rm --net ddnsr --ip 172.20.0.4 -p 8083:80 nginxdemos/hello
+	@docker build -t ddnsr-demo/upstream -f upstream/Dockerfile .
+	@docker run -d --rm --net ddnsr --ip 172.20.0.3 -v $(shell pwd)/upstream/hello.conf:/etc/nginx/nginx.conf -p 8082:80 ddnsr-demo/upstream
+	@docker run -d --rm --net ddnsr --ip 172.20.0.4 -v $(shell pwd)/upstream/hello.conf:/etc/nginx/nginx.conf -p 8083:80 ddnsr-demo/upstream
