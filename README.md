@@ -27,7 +27,7 @@ And finally, we need to get our edge up and running to use the DNS server to sim
 make start_edge
 ```
 
-Now you can change the `dns/config/ddnsr-demo.hosts` file and check if `localhost:8080?backend=hello` still works.
+Now you can change the `dns/config/ddnsr-demo.hosts` file and check if `http://localhost:8080?backend=hello` still works.
 
 There are two IPs you can use to simulate this: `172.20.0.3` and `172.20.0.4`
 
@@ -37,7 +37,7 @@ To check if the keepalive feature still works after using dynamic DNS resolver, 
 
 1) open up a terminal in the `edge` container
 2) execute `tcpdump -i any -nn -s0 -vvv "dst 172.20.0.3 and tcp[tcpflags] & tcp-syn != 0"`
-3) make a request to `localhost:8080` check if received a line containing `Flags [S]`
+3) make a request to `http://localhost:8080` check if received a line containing `Flags [S]`
 4) repeat the request above and check if you are still receiving that line
 
 If you did not receive it twice, keep-alive is working fine.
@@ -46,10 +46,10 @@ If you did not receive it twice, keep-alive is working fine.
 
 There are some known behaviors when using upstreams as variables:
 
-Use `localhost:8080?backend=hello` for fetching data from the `hello` app that has IPs dynamically resolved.
+Use `http://localhost:8080?backend=hello` for fetching data from the `hello` app that has IPs dynamically resolved.
 
 or
 
-`localhost:8080?backend=local` for fetching data from a dummy backend.
+`http://localhost:8080?backend=local` for fetching data from a dummy backend.
 
 Requests made for the `hello` app have a header `X-Upstream` to better understand where the data is coming from.
