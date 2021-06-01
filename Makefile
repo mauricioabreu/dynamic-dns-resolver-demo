@@ -1,6 +1,6 @@
 start_edge:
 	@docker build -t ddnsr-demo/edge -f edge/Dockerfile .
-	@docker run -d --rm --net ddnsr -p 8080:8080 -v $(shell pwd)/edge/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf -v $(shell pwd)/edge/src/:/lua/src/ ddnsr-demo/edge
+	@docker run -d --rm --net ddnsr -p 8080:8080 -v $(shell pwd)/edge/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf -v $(shell pwd)/edge/src/:/lua/src/ -v $(shell pwd)/edge/resolv.conf/:/etc/resolv.conf ddnsr-demo/edge
 
 start_dns:
 	@docker build -t ddnsr-demo/coredns -f dns/Dockerfile .
