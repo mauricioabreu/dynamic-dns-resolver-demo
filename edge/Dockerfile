@@ -6,5 +6,5 @@ RUN apt-get update \
   && mkdir /src \
   && cd /src \
   && git config --global url."https://".insteadOf git:// \
-  && luarocks install lua-resty-dns \
+  && luarocks install lua-resty-resolver \
   && rm -Rf /src
