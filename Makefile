@@ -1,3 +1,6 @@
+create_network:
+	@docker network create --subnet=172.20.0.0/16 ddnsr
+
 start_edge:
 	@docker build -t ddnsr-demo/edge -f edge/Dockerfile .
 	@docker run -d --rm --net ddnsr -p 8080:8080 -v $(shell pwd)/edge/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf -v $(shell pwd)/edge/src/:/lua/src/ -v $(shell pwd)/edge/resolv.conf/:/etc/resolv.conf ddnsr-demo/edge

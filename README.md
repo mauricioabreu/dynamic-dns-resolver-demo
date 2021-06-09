@@ -14,9 +14,13 @@ NGINX does not query the DNS again after it starts. If the IP resolved by DNS ch
 
 ## Usage
 
-> These containers run in a custom network. Run `docker network create --subnet=172.20.0.0/16 ddnsr` to create it
+Before starting our containers, we must create a network where all our containers are able to communicate to each other.
 
-First, fire up two upstreams. These will be our NGINX upstreams used to emulate invalid IPs being cached by NGINX.
+```console
+make create_network
+```
+
+Now, fire up two upstreams. These will be our NGINX upstreams used to emulate invalid IPs being cached by NGINX.
 
 ```console
 make start_upstreams
